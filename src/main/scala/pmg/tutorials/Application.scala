@@ -3,11 +3,10 @@ package pmg.tutorials
 import akka.actor.{ActorSystem, Props}
 
 object Application {
-    
     /**
      * Main entry point
      *
-     * $ app [password] [startingLength] [maxLength]
+     * $ run [password] [startingLength] [maxLength]
      */
     def main(args: Array[String]) {
         val system = ActorSystem("BruteForceSystem")

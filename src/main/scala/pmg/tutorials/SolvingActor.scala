@@ -1,13 +1,13 @@
 package pmg.tutorials
 
 import akka.actor.{Actor, ActorLogging, Props}
+import scala.io.Source
 
 /**
  * Companion object to SolvingActor in this example we put our 
  * factory method for creating the actor here
  */
 object SolvingActor {
-    
     /**
      * Its best practice to use a factory method for creating actors
      * with constructor arguments.
@@ -20,12 +20,14 @@ object SolvingActor {
  * is a match it returns  Success message with the solution. Otherwise
  * it returns a case object represting a Failure
  */
-class SolvingActor(solution: String) extends Actor with ActorLogging {
+class SolvingActor(filename: String) extends Actor with ActorLogging {
+
+    private val password = Source.fromFile(filename).getLines.next
 
     def receive = {
         case Solution(attemptedValue: String) => {
-            if (attemptedValue equals solution) {
-                sender ! Success(solution)
+            if (attemptedValue equals password) {
+                sender ! Success(password)
             } else {
                 sender ! Failure
             }

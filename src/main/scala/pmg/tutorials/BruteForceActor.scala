@@ -8,8 +8,11 @@ import akka.actor.{Actor, ActorLogging, PoisonPill}
  * meta data that acts as a payload
  */
 case class Crack(startingLength: Int, maxLength: Int)
+
 case class Solution(attemptedValue: String)
+
 case class Success(solution: String)
+
 case object Failure
 
 class BruteForceActor extends Actor with ActorLogging {
@@ -68,3 +71,4 @@ class BruteForceActor extends Actor with ActorLogging {
         }
     }
 }
+

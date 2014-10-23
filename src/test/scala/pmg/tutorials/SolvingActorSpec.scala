@@ -16,16 +16,16 @@ class SolvingActorSpec extends FlatSpec with Matchers {
         implicit val system = ActorSystem("BruteForceSystem")
         implicit val timeout = Timeout(5 seconds)
 
-        val actorRef = TestActorRef(new SolvingActor("pass"))
+        val actorRef = TestActorRef(new SolvingActor("password.txt"))
 
         // Lets send a simlulated "Solution" to the actor
-        val future = actorRef ? Solution("pass")
+        val future = actorRef ? Solution("wtf")
         
         // Now we retreive the response similar to the "receive" method in the actor
         val ScalaSuccess(Success(solution: String)) = future.value.get
 
         // Finally we make the assertion
-        solution should be("pass")
+        solution should be("wtf")
         
         system.shutdown
     }
@@ -34,7 +34,7 @@ class SolvingActorSpec extends FlatSpec with Matchers {
         implicit val system = ActorSystem("BruteForceSystem")
         implicit val timeout = Timeout(5 seconds)
 
-        val actorRef = TestActorRef(new SolvingActor("wrong"))
+        val actorRef = TestActorRef(new SolvingActor("password.txt"))
         
         val future = actorRef ? Solution("isThisRight")
         
