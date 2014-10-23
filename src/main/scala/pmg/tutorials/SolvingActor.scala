@@ -18,7 +18,7 @@ object SolvingActor {
 /**
  * This actor stores a solution and validates possibilities. If there
  * is a match it returns  Success message with the solution. Otherwise
- * it returns a case object represting a Failure
+ * it returns a case object representing a Failure
  */
 class SolvingActor(filename: String) extends Actor with ActorLogging {
 

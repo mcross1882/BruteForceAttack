@@ -18,7 +18,7 @@ case object Failure
 class BruteForceActor extends Actor with ActorLogging {
     /**
      * Here we concatenate "ranges" of valid characters to form a
-     * single sequnce
+     * single sequence
      */
     private val Alphabet = ('a' to 'z') ++ ('A' to 'Z') ++ ('0' to '9')
     
