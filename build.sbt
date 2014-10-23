@@ -8,5 +8,9 @@ resolvers += "Typesafe Repository" at "http://repo.typesafe.com/typesafe/release
 
 libraryDependencies ++= Seq(
     "com.typesafe.akka" %% "akka-actor" % "2.3.6",
-    "com.typesafe.akka" %% "akka-remote" % "2.3.6"
+    "com.typesafe.akka" %% "akka-testkit" % "2.3.6",
+    "org.scalatest" % "scalatest_2.10" % "2.2.1" % "test"
 )
+
+scalacOptions ++= Seq("-unchecked", "-deprecation", "-feature")
+
